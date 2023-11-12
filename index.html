@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Dynamic Dropdowns</title>
+  </head>
+  <body>
+    <h1>Dynamic Dropdowns</h1>
+
+    <div id="dropdown-container">
+      <!-- Initial dropdown -->
+      <div>
+        <label for="dropdown1">Select Unit:</label>
+        <select class="unit-dropdown">
+          <!-- Options will be added dynamically using JavaScript -->
+        </select>
+      </div>
+    </div>
+
+    <button onclick="addDropdown()">Add Dropdown</button>
+    <button onclick="calculate()">Calculate</button>
+
+    <div id="result">Result:</div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
