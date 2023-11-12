@@ -1,22 +1,3 @@
-// Array of units for each category
-const gauls = [
-  "Phalanx",
-  "Swordsmen",
-  "Pathfinder",
-  "Theutates Thunder",
-  "Druidrider",
-  "Haeduan",
-  "Ram",
-  "Trebuchet",
-  "Chieftain",
-  "Settler",
-];
-
-const romans = ["Romans TODO"];
-const teutons = ["Teutons TODO"];
-const egypt = ["Egypt TODO"];
-const huns = ["Huns TODO"];
-
 document.addEventListener("DOMContentLoaded", function () {
   // Array of options for the category dropdown
   const tribes = ["Gauls", "Romans", "Teutons", "Egypt", "Huns"];
@@ -81,6 +62,7 @@ function addDropdown() {
 
   // Create a new number input field
   const numberInput = document.createElement("input");
+  numberInput.title = "Title";
   numberInput.type = "number";
   numberInput.placeholder = "Count";
 
@@ -103,6 +85,26 @@ function addDropdown() {
   infoFields.forEach((field) =>
     container.insertBefore(field, document.querySelector("button"))
   );
+
+  //calculateSum();
+}
+
+function calculateSum() {
+  const unitDropdown = document.getElementById("unitDropdown");
+  const numberInput = document.getElementById("numberInput");
+  const sumResult = document.getElementById("sumResult");
+
+  const selectedUnit = unitDropdown.value;
+  const mult = parseInt(numberInput.value);
+
+  if (!isNaN(mult)) {
+    //console.log(`gaulsTest.${selectedUnit}[0].Wood`);
+    //console.log(gaulsTest.Phalanx);
+    const sum = gaulsTest.Phalanx[0].Wood * mult;
+    sumResult.textContent = `Sum Result: ${sum}`;
+  } else {
+    sumResult.textContent = "Please enter a valid number.";
+  }
 }
 
 // Function to update the result message

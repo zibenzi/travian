@@ -8,23 +8,37 @@
   </head>
   <body>
     <div class="container">
-      <h1>Dropdown Menu Example</h1>
-      <label for="tribeDropdown">Choose a category:</label>
+      <h1>Travian NPC Calculator</h1>
+      <label for="tribeDropdown">Choose Tribe:</label>
       <select id="tribeDropdown" onchange="updateFunctionality()">
         <!-- Options will be added dynamically using JavaScript -->
       </select>
 
-      <label for="unitDropdown">Choose a unit:</label>
+      <label for="unitDropdown">Choose Units:</label>
       <select id="unitDropdown">
         <!-- Options will be added dynamically using JavaScript -->
       </select>
 
+      <!-- Initial number input -->
+      <label for="numberInput"></label>
+      <input type="number" id="numberInput" placeholder="Count" />
+
+      <!-- Initial display fields -->
+      <div id="displayFields">
+        <div id="infoField1">Wood:</div>
+        <div id="infoField2">Clay:</div>
+        <div id="infoField3">Iron:</div>
+        <div id="infoField4">Wheat:</div>
+        <div id="infoField5">Total:</div>
+      </div>
+
       <button onclick="addDropdown()">Add Dropdown</button>
 
-      <div id="result">
-        Selected category and unit will influence other functionalities.
-      </div>
+      <!-- Button to calculate sum -->
+      <button onclick="calculateSum()">Calculate Sum</button>
+      <div id="sumResult">Sum Result:</div>
     </div>
     <script src="script.js"></script>
+    <script src="data.js"></script>
   </body>
 </html>
