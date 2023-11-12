@@ -1,83 +1,115 @@
-// Sample units array
-const units = [
-  { values: [1, 2, 3], levels: ["Low", "Medium", "High"], counts: [1, 2, 3] },
-  { values: [4, 5, 6], levels: ["Low", "Medium", "High"], counts: [1, 2, 3] },
+// Array of units for each category
+const gauls = [
+  "Phalanx",
+  "Swordsmen",
+  "Pathfinder",
+  "Theutates Thunder",
+  "Druidrider",
+  "Haeduan",
+  "Ram",
+  "Trebuchet",
+  "Chieftain",
+  "Settler",
 ];
 
-// Function to populate dropdowns
-function populateDropdown(container, unit) {
-  const valueDropdown = document.createElement("select");
-  valueDropdown.className = "unit-dropdown";
-  unit.values.forEach((value) => {
-    const option = document.createElement("option");
-    option.value = value;
-    option.text = value;
-    valueDropdown.add(option);
+const romans = ["Romans TODO"];
+const teutons = ["Teutons TODO"];
+const egypt = ["Egypt TODO"];
+const huns = ["Huns TODO"];
+
+document.addEventListener("DOMContentLoaded", function () {
+  // Array of options for the category dropdown
+  const tribes = ["Gauls", "Romans", "Teutons", "Egypt", "Huns"];
+
+  // Populate the category dropdown with options
+  const tribeDropdown = document.getElementById("tribeDropdown");
+  tribes.forEach((option) => {
+    const optionElement = document.createElement("option");
+    optionElement.value = option;
+    optionElement.text = option;
+    tribeDropdown.add(optionElement);
   });
 
-  const levelDropdown = document.createElement("select");
-  levelDropdown.className = "level-dropdown";
-  unit.levels.forEach((level) => {
-    const option = document.createElement("option");
-    option.value = level;
-    option.text = level;
-    levelDropdown.add(option);
-  });
+  // Populate the unit dropdown based on the selected category
+  updateTribeUnitDropdown();
+});
 
-  const countDropdown = document.createElement("select");
-  countDropdown.className = "count-dropdown";
-  unit.counts.forEach((count) => {
-    const option = document.createElement("option");
-    option.value = count;
-    option.text = count;
-    countDropdown.add(option);
-  });
+// Function to be called when the category dropdown selection changes
+function updateFunctionality() {
+  updateTribeUnitDropdown();
+  updateResultMessage();
+}
 
-  container.appendChild(valueDropdown);
-  container.appendChild(levelDropdown);
-  container.appendChild(countDropdown);
+// Function to populate the unit dropdown based on the selected category
+function updateTribeUnitDropdown() {
+  const tribeDropdown = document.getElementById("tribeDropdown");
+  const unitDropdown = document.getElementById("unitDropdown");
+  const selectedTribe = tribeDropdown.value;
+
+  // Clear existing options
+  unitDropdown.innerHTML = "";
+
+  // Populate the unit dropdown with options based on the selected category
+  let units;
+  if (selectedTribe == "Gauls") {
+    units = gauls;
+  } else if (selectedTribe == "Romans") {
+    units = romans;
+  } else if (selectedTribe == "Teutons") {
+    units = teutons;
+  } else if (selectedTribe == "Egypt") {
+    units = egypt;
+  } else {
+    units = huns;
+  }
+
+  units.forEach((unit) => {
+    const unitElement = document.createElement("option");
+    unitElement.value = unit;
+    unitElement.text = unit;
+    unitDropdown.add(unitElement);
+  });
 }
 
 // Function to add a new dropdown
 function addDropdown() {
-  const container = document.getElementById("dropdown-container");
+  const container = document.querySelector(".container");
 
-  // Create a new dropdown div
-  const newDropdown = document.createElement("div");
+  // Create a new dropdown
+  const newDropdown = document.createElement("select");
+  newDropdown.innerHTML = unitDropdown.innerHTML;
 
-  // Create a new label
-  const label = document.createElement("label");
-  label.textContent = `Select Unit ${container.childElementCount + 1}:`;
+  // Create a new number input field
+  const numberInput = document.createElement("input");
+  numberInput.type = "number";
+  numberInput.placeholder = "Count";
 
-  // Populate the new dropdown with options
-  populateDropdown(newDropdown, units[0]); // Use units[0] for the first dropdown
+  // Create five new fields for displaying information
+  const infoFields = [];
 
-  // Append the label and dropdown elements to the new dropdown div
-  newDropdown.appendChild(label);
+  for (let i = 1; i <= 5; i++) {
+    const infoField = document.createElement("div");
+    infoFields.push(infoField);
+  }
+  infoFields[0].textContent = `Wood: ${0}`;
+  infoFields[1].textContent = `Clay: ${0}`;
+  infoFields[2].textContent = `Iron: ${0}`;
+  infoFields[3].textContent = `Wheat: ${0}`;
+  infoFields[4].textContent = `Total: ${0}`;
 
-  // Append the new dropdown div to the container
-  container.appendChild(newDropdown);
+  // Append the new elements to the container
+  container.insertBefore(newDropdown, document.querySelector("button"));
+  container.insertBefore(numberInput, document.querySelector("button"));
+  infoFields.forEach((field) =>
+    container.insertBefore(field, document.querySelector("button"))
+  );
 }
 
-// Populate initial dropdown on page load
-document.addEventListener("DOMContentLoaded", function () {
-  const initialDropdown = document.querySelector(".unit-dropdown");
-  populateDropdown(initialDropdown, units[0]); // Use units[0] for the first dropdown
-});
-
-// Function to calculate and display result
-function calculate() {
-  // Get all dropdowns with class 'unit-dropdown'
-  const dropdowns = document.querySelectorAll(".unit-dropdown");
-
-  let total = 0;
-
-  // Iterate through each dropdown and add up selected values
-  dropdowns.forEach((dropdown) => {
-    const selectedValue = parseFloat(dropdown.value) || 0;
-    total += selectedValue;
-  });
-
-  // Display the result
-  document.getElementById("result").innerText = `Result: ${total}`;
+// Function to update the result message
+function updateResultMessage() {
+  const selectedTribe = document.getElementById("tribeDropdown").value;
+  const selectedUnit = document.getElementById("unitDropdown").value;
+  const resultDiv = document.getElementById("result");
+  resultDiv.textContent = `Selected category: ${selectedTribe}, Selected unit: ${selectedUnit}. Other functionalities will be influenced accordingly.`;
+  // You can add additional functionality based on the selected category and unit here
 }

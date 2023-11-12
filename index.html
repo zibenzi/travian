@@ -3,27 +3,28 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <title>Travian NPC Calculator</title>
+    <link rel="stylesheet" href="styles.css" />
+    <title>Dropdown Menu Example</title>
   </head>
   <body>
-    <h1>Travian NPC Calculator</h1>
+    <div class="container">
+      <h1>Dropdown Menu Example</h1>
+      <label for="tribeDropdown">Choose a category:</label>
+      <select id="tribeDropdown" onchange="updateFunctionality()">
+        <!-- Options will be added dynamically using JavaScript -->
+      </select>
 
-    <div id="dropdown-container">
-      <!-- Initial dropdown -->
-      <div>
-        <label for="dropdown1">Select Unit:</label>
-        <select class="unit-dropdown">
-          <!-- Options will be added dynamically using JavaScript -->
-        </select>
+      <label for="unitDropdown">Choose a unit:</label>
+      <select id="unitDropdown">
+        <!-- Options will be added dynamically using JavaScript -->
+      </select>
+
+      <button onclick="addDropdown()">Add Dropdown</button>
+
+      <div id="result">
+        Selected category and unit will influence other functionalities.
       </div>
     </div>
-
-    <button onclick="addDropdown()">Add Dropdown</button>
-    <button onclick="calculate()">Calculate</button>
-
-    <div id="result">Result:</div>
-
     <script src="script.js"></script>
   </body>
 </html>
