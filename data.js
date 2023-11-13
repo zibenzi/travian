@@ -1,33 +1,114 @@
-const gauls = [
-  "Phalanx",
-  "Swordsmen",
-  "Pathfinder",
-  "Theutates Thunder",
-  "Druidrider",
-  "Haeduan",
-  "Ram",
-  "Trebuchet",
-  "Chieftain",
-  "Settler",
-];
+let unitId = -1;
 
-const romans = ["Romans TODO"];
-const teutons = ["Teutons TODO"];
-const egypt = ["Egypt TODO"];
-const huns = ["Huns TODO"];
+const tribes = ["-", "Gauls", "Romans", "Teutons", "Egypt", "Huns"]
+const data = {
+  Gauls: {
+    units: [
+      {
+        name: "Phalanx",
+        cost: {
+          wood: 100,
+          clay: 130,
+          iron: 55,
+          wheat: 30
+        }
+      },
+      {
+        name: "Swordsmen",
+        cost: {
+          wood: 140,
+          clay: 150,
+          iron: 185,
+          wheat: 60
+        }
+      },
+      {
+        name: "Pathfinder",
+        cost: {
+          wood: 170,
+          clay: 150,
+          iron: 20,
+          wheat: 40
+        }
+      },
+      {
+        name: "Theutates Thunder",
+        cost: {
+          wood: 350,
+          clay: 450,
+          iron: 230,
+          wheat: 60
+        }
+      },
+      {
+        name: "Druidrider",
+        cost: {
+          wood: 360,
+          clay: 330,
+          iron: 280,
+          wheat: 120
+        }
+      },
+      {
+        name: "Haeduan",
+        cost: {
+          wood: 500,
+          clay: 620,
+          iron: 675,
+          wheat: 170
+        }
+      },
+      {
+        name: "Ram",
+        cost: {
+          wood: 950,
+          clay: 555,
+          iron: 330,
+          wheat: 75
+        }
+      },
+      {
+        name: "Trebuchet",
+        cost: {
+          wood: 960,
+          clay: 1450,
+          iron: 630,
+          wheat: 90
+        }
+      },
+      {
+        name: "Chieftain",
+        cost: {
+          wood: 30750,
+          clay: 45400,
+          iron: 31000,
+          wheat: 37500
+        }
+      },
+      {
+        name: "Settler",
+        cost: {
+          wood: 4400,
+          clay: 5600,
+          iron: 4200,
+          wheat: 3900
+        }
+      },
+    ]
+  },
+  Romans: {
 
-const phalanx = [100, 130, 55, 30];
-const swordsmen = [140, 150, 185, 60];
-const pathfinder = [170, 150, 20, 40];
-const theutatesThunder = [350, 450, 230, 60];
-const druidrider = [360, 330, 280, 120];
-const haeduan = [500, 620, 675, 170];
-const ram = [950, 555, 330, 75];
-const trebuchet = [960, 1450, 630, 90];
-const chieftain = [30750, 45400, 31000, 37500];
-const settler = [4400, 5600, 4200, 3900];
+  },
+  Teutons: {
 
-const gaulsTest = {
-  Phalanx: [{ Wood: 100, Clay: 130, Iron: 55, Wheat: 30 }],
-  Swordsmen: [{ Wood: 140, Clay: 150, Iron: 185, Wheat: 60 }],
+  },
+  Egypt: {
+
+  },
+  Huns: {
+
+  }
 };
+
+const materials = ["wood", "clay", "iron", "wheat"];
+

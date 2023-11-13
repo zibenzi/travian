@@ -5,40 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
     <title>Dropdown Menu Example</title>
+    <script src="data.js"></script>
+    <script src="script.js"></script>
   </head>
   <body>
+    <h1>Travian NPC Calculator</h1>
     <div class="container">
-      <h1>Travian NPC Calculator</h1>
       <label for="tribeDropdown">Choose Tribe:</label>
-      <select id="tribeDropdown" onchange="updateFunctionality()">
-        <!-- Options will be added dynamically using JavaScript -->
+      <select id="tribeDropdown" onchange="updateUnits(this)">
       </select>
 
-      <label for="unitDropdown">Choose Units:</label>
-      <select id="unitDropdown">
-        <!-- Options will be added dynamically using JavaScript -->
-      </select>
+      <div id="units">
 
-      <!-- Initial number input -->
-      <label for="numberInput"></label>
-      <input type="number" id="numberInput" placeholder="Count" />
-
-      <!-- Initial display fields -->
-      <div id="displayFields">
-        <div id="infoField1">Wood:</div>
-        <div id="infoField2">Clay:</div>
-        <div id="infoField3">Iron:</div>
-        <div id="infoField4">Wheat:</div>
-        <div id="infoField5">Total:</div>
       </div>
 
-      <button onclick="addDropdown()">Add Dropdown</button>
-
       <!-- Button to calculate sum -->
-      <button onclick="calculateSum()">Calculate Sum</button>
-      <div id="sumResult">Sum Result:</div>
+      <span id="sumResult">Sum Result: </span>
+      <button onclick="calculateSum()">Calculate</button>
+      <ul>
+        <li id="woodTotal">Wood: 0</li>
+        <li id="clayTotal">Clay: 0</li>
+        <li id="ironTotal">Iron: 0</li>
+        <li id="wheatTotal">Wheat: 0</li>
+      </ul>
     </div>
-    <script src="script.js"></script>
-    <script src="data.js"></script>
+    
   </body>
 </html>
